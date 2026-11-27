@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: fact_orders_dbt
+    description: "Gold fact table containing validated food delivery orders."
+
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: date_sk
+        data_tests:
+          - not_null
+
+      - name: restaurant_sk
+        data_tests:
+          - not_null
+
+      - name: city_sk
+        data_tests:
+          - not_null
+
+      - name: food_category_sk
+        data_tests:
+          - not_null
+
+      - name: quantity
+        data_tests:
+          - not_null
+
+      - name: item_price
+        data_tests:
+          - not_null
+
+      - name: order_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - DELIVERED
+                  - CANCELLED
+                  - PLACED
+                  - PREPARING
+                  - OUT_FOR_DELIVERY
+
+    

@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: food_delivery_bronze
+    database: food_delivery_catalog
+    schema: bronze
+    tables:
+      - name: orders_raw
+        description: "Raw food delivery orders containing Batch 1 and Batch 2 records."
+
+  - name: food_delivery_silver
+    database: food_delivery_catalog
+    schema: silver
+    tables:
+      - name: orders_cleaned
+        description: "Existing Batch 1 cleaned orders used as the incremental baseline."
+  - name: food_delivery_gold
+    database: food_delivery_catalog
+    schema: gold
+    tables:
+      - name: dim_restaurant
+      - name: dim_city
+      - name: dim_food_category
+      - name: dim_date
+  - name: restaurant_source
+    database: food_delivery_catalog
+    schema: source
+    tables:
+      - name: restaurants_current
+        description: "Current-state restaurant master data used for dbt snapshots."
