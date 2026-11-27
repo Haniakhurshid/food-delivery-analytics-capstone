@@ -59,8 +59,3 @@ The incremental processing demonstration produced:
 - 114 unique orders after incremental processing.
 - Total revenue of ₹214,801.00.
 
-All configured dbt data tests passed.
-
-## Project Outcome
-
-The project demonstrates an end-to-end data engineering workflow, from raw data ingestion to validated, transformed and analytics-ready datasets, with incremental processing, historical tracking and automated data quality checks.
